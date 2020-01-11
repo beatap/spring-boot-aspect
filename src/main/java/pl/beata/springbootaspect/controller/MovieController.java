@@ -13,7 +13,6 @@ import pl.beata.springbootaspect.model.Movie;
 import pl.beata.springbootaspect.service.MovieService;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/movies")
@@ -34,7 +33,7 @@ public class MovieController {
 
     @PostMapping("/add")
     @Movies
-    public ResponseEntity postMovie(@RequestBody Optional<Movie> movie) {
+    public ResponseEntity postMovie(@RequestBody Movie movie) {
         boolean addMovie = movieService.addMovie(movie);
 
         if(addMovie) {

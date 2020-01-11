@@ -28,13 +28,8 @@ public class MovieService {
         return movies;
     }
 
-    public boolean addMovie(Optional<Movie> movie) {
-        if(Optional.of(movie).isPresent()) {
-            movies.add(movie.get());
+    public boolean addMovie(Movie movie) {
 
-            return true;
-        }
-
-        return false;
+        return Optional.ofNullable(movie).map(m -> movies.add(m)).orElse(false);
     }
 }
